@@ -16,12 +16,16 @@ export default function Header() {
     "Lojas",
   ];
 
-  const HEADER_HEIGHT = 64; // Adjust this if your header is taller
+  const HEADER_HEIGHT = 64; // Altura do header em px
 
   return (
     <>
       <header
-        className="relative flex w-full xl:px-6 flex-row justify-between py-4 px-[20px] z-50 bg-white"
+        className={`
+          relative flex w-full xl:px-6 flex-row justify-between py-4 px-[20px] z-50
+          bg-transparent xl:bg-white
+          transition-colors duration-300
+        `}
         style={{ height: HEADER_HEIGHT }}
       >
         <div className="flex items-center gap-5 relative w-full xl:w-auto">
@@ -122,20 +126,18 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Overlay and Menu */}
+      {/* Overlay abaixo do header */}
       {menuOpen && (
         <>
-          {/* Overlay (everything except header) */}
           <div
-            className="fixed inset-0 top-[64px] z-40 bg-black/30 backdrop-blur-sm"
+            className="fixed inset-x-0 top-[64px] bottom-0 z-40 bg-black/30 backdrop-blur-sm"
             onClick={() => setMenuOpen(false)}
           />
-
-          {/* Menu (below header) */}
           <div
-            className={`fixed top-[64px] left-0 h-[calc(100vh-64px)] w-[432px] bg-white z-50 transition-transform duration-300 ${
-              menuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`fixed top-[64px] left-0 h-[calc(100vh-64px)] bg-white z-50 transition-transform duration-300
+              w-full xl:w-[432px]
+              ${menuOpen ? "translate-x-0" : "-translate-x-full"}
+            `}
           >
             <Menu />
           </div>
