@@ -16,7 +16,7 @@ export default function Header() {
     "Lojas",
   ];
 
-  const HEADER_HEIGHT = 64; // Altura do header em px
+  const HEADER_HEIGHT = 64;
 
   return (
     <>
@@ -29,7 +29,6 @@ export default function Header() {
         style={{ height: HEADER_HEIGHT }}
       >
         <div className="flex items-center gap-5 relative w-full xl:w-auto">
-          {/* Burger Icon */}
           <div
             onClick={() => setMenuOpen((prev) => !prev)}
             className="flex xl:items-center justify-center flex-col gap-[5px] xl:w-[21px] xl:h-[21px] w-[49px] h-[24px] cursor-pointer z-50 relative"
@@ -49,8 +48,6 @@ export default function Header() {
               />
             ))}
           </div>
-
-          {/* Logo */}
           <div className="absolute left-1/2 -translate-x-1/2 xl:static xl:translate-x-0">
             <div className="xl:hidden">
               <Image
@@ -71,8 +68,6 @@ export default function Header() {
               />
             </div>
           </div>
-
-          {/* Search bar */}
           <div className="hidden xl:flex items-center w-[496px] h-[37px] bg-[var(--inputsbg)] pl-3 gap-1 ml-6">
             <div className="w-[24px] h-[24px] flex items-center justify-center">
               <Image
@@ -90,8 +85,6 @@ export default function Header() {
             />
           </div>
         </div>
-
-        {/* Right nav icons */}
         <div className="flex items-center gap-4">
           <nav className="hidden xl:flex items-center gap-4">
             {navItems.map((item) => (
@@ -125,8 +118,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-
-      {/* Overlay abaixo do header */}
       {menuOpen && (
         <>
           <div
